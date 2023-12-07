@@ -1,4 +1,4 @@
-package main
+package exercises
 
 import (
 	"fmt"
@@ -21,7 +21,7 @@ func calculateFinancial(revenue, expenses, taxRate float64) (float64, float64, f
 	return ebt, profit, ratio
 }
 
-func main() {
+func Run() {
 	var revenue float64
 	var expenses float64
 	var taxRate float64
