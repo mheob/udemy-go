@@ -1,7 +1,7 @@
 package main
 
-import "github.com/mheob/udemy-go/exercises"
+import profitCalculator "github.com/mheob/udemy-go/exercises/profit_calculator"
 
 func main() {
-	exercises.Run()
+	profitCalculator.Run()
 }
