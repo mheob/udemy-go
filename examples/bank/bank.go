@@ -1,37 +1,16 @@
 package bank
 
 import (
-	"errors"
 	"fmt"
-	"os"
-	"strconv"
+
+	"github.com/Pallinder/go-randomdata"
+	"github.com/mheob/udemy-go/utils"
 )
 
 const ACCOUNT_BALANCE_FILE = "examples/bank/balance.txt"
-const DEFAULT_VALUE = 0
-
-func readBalanceFromFile() (float64, error) {
-	balance, err := os.ReadFile(ACCOUNT_BALANCE_FILE)
-	if err != nil {
-		return DEFAULT_VALUE, errors.New("Failed to read balance file.")
-	}
-
-	balanceText := string(balance)
-	balanceAmount, err := strconv.ParseFloat(balanceText, 64)
-	if err != nil {
-		return DEFAULT_VALUE, errors.New("Failed to parse stored balance value.")
-	}
-
-	return balanceAmount, nil
-}
-
-func writeBalanceToFile(balance float64) {
-	formattedBalance := fmt.Sprintf("%.2f", balance)
-	os.WriteFile(ACCOUNT_BALANCE_FILE, []byte(formattedBalance), 0644)
-}
 
 func Run() {
-	accountBalance, err := readBalanceFromFile()
+	accountBalance, err := utils.GetFloatFromFile(ACCOUNT_BALANCE_FILE)
 	if err != nil {
 		fmt.Println("ERROR!")
 		fmt.Println(err)
@@ -40,13 +19,10 @@ func Run() {
 	}
 
 	fmt.Println("Welcome to Go Bank!")
+	fmt.Println("Reach us 24/7", randomdata.PhoneNumber())
 
 	for {
-		fmt.Println("What do you want to do?")
-		fmt.Println("1. Check Balance")
-		fmt.Println("2. Deposit Money")
-		fmt.Println("3. Withdraw Money")
-		fmt.Println("4. Exit")
+		printOptions()
 
 		var choice int
 		fmt.Print("Your choice: ")
@@ -66,7 +42,7 @@ func Run() {
 			}
 
 			accountBalance += depositAmount
-			writeBalanceToFile(accountBalance)
+			utils.WriteFloatToFile(ACCOUNT_BALANCE_FILE, accountBalance)
 			fmt.Printf("Your balance is %.2f\n", accountBalance)
 		case 3:
 			var withdrawalAmount float64
@@ -82,7 +58,7 @@ func Run() {
 				fmt.Println("You don't have enough balance!")
 			} else {
 				accountBalance -= withdrawalAmount
-				writeBalanceToFile(accountBalance)
+				utils.WriteFloatToFile(ACCOUNT_BALANCE_FILE, accountBalance)
 				fmt.Printf("Your balance is %.2f\n", accountBalance)
 			}
 		case 4:
