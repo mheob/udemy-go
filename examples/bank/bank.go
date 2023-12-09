@@ -7,10 +7,10 @@ import (
 	"github.com/mheob/udemy-go/utils"
 )
 
-const ACCOUNT_BALANCE_FILE = "examples/bank/balance.txt"
+const accountBalanceFile = "examples/bank/balance.txt"
 
 func Run() {
-	accountBalance, err := utils.GetFloatFromFile(ACCOUNT_BALANCE_FILE)
+	accountBalance, err := utils.GetFloatFromFile(accountBalanceFile)
 	if err != nil {
 		fmt.Println("ERROR!")
 		fmt.Println(err)
@@ -42,7 +42,7 @@ func Run() {
 			}
 
 			accountBalance += depositAmount
-			utils.WriteFloatToFile(ACCOUNT_BALANCE_FILE, accountBalance)
+			utils.WriteFloatToFile(accountBalanceFile, accountBalance)
 			fmt.Printf("Your balance is %.2f\n", accountBalance)
 		case 3:
 			var withdrawalAmount float64
@@ -58,7 +58,7 @@ func Run() {
 				fmt.Println("You don't have enough balance!")
 			} else {
 				accountBalance -= withdrawalAmount
-				utils.WriteFloatToFile(ACCOUNT_BALANCE_FILE, accountBalance)
+				utils.WriteFloatToFile(accountBalanceFile, accountBalance)
 				fmt.Printf("Your balance is %.2f\n", accountBalance)
 			}
 		case 4:

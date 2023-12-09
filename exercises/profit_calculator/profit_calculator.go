@@ -6,15 +6,15 @@ import (
 	"os"
 )
 
-const RESULTS_FILE = "exercises/profit_calculator/results.txt"
+const resultsFile = "exercises/profit_calculator/results.txt"
 
 // storeResults writes the calculated EBT, profit, and ratio to a file.
 // It takes three float64 arguments: ebt, profit, and ratio.
-// The results are formatted as a string and written to the file specified by RESULTS_FILE.
+// The results are formatted as a string and written to the file specified by resultsFile.
 // The file is created with read and write permissions for the owner and read permissions for others.
 func storeResults(ebt, profit, ratio float64) {
 	results := fmt.Sprintf("EBT: %.1f\nProfit: %.1f\nRatio: %.3f\n", ebt, profit, ratio)
-	os.WriteFile(RESULTS_FILE, []byte(results), 0644)
+	os.WriteFile(resultsFile, []byte(results), 0644)
 }
 
 // printResults prints the calculated EBT, profit, and ratio.
