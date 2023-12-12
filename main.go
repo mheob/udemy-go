@@ -1,7 +1,7 @@
 package main
 
-import "github.com/mheob/udemy-go/examples/structs"
+import "github.com/mheob/udemy-go/exercises/note_main"
 
 func main() {
-	structs.Run()
+	note_main.Run()
 }
