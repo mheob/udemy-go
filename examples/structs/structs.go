@@ -1,39 +1,10 @@
 package structs
 
 import (
-	"errors"
 	"fmt"
-	"time"
+
+	"github.com/mheob/udemy-go/examples/structs/user"
 )
-
-type user struct {
-	firstName string
-	lastName  string
-	birthday  string
-	createdAt time.Time
-}
-
-func (u *user) outputUserDetails() {
-	fmt.Println(u.firstName, u.lastName, u.birthday)
-}
-
-func (u *user) clearUserNames() {
-	u.firstName = ""
-	u.lastName = ""
-}
-
-func newUser(firstName, lastName, birthday string) (*user, error) {
-	if firstName == "" || lastName == "" || birthday == "" {
-		return nil, errors.New("First name, last name, and birthday are required.")
-	}
-
-	return &user{
-		firstName: firstName,
-		lastName:  lastName,
-		birthday:  birthday,
-		createdAt: time.Now(),
-	}, nil
-}
 
 func getUserData(promptText string) string {
 	fmt.Print(promptText)
@@ -47,13 +18,13 @@ func Run() {
 	lastName := getUserData("Please enter your last name: ")
 	birthday := getUserData("Please enter your birthday (MM/DD/YYYY): ")
 
-	appUser, err := newUser(firstName, lastName, birthday)
+	appUser, err := user.New(firstName, lastName, birthday)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	appUser.outputUserDetails()
-	appUser.clearUserNames()
-	appUser.outputUserDetails()
+	appUser.OutputUserDetails()
+	appUser.ClearUserNames()
+	appUser.OutputUserDetails()
 }
