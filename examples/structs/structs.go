@@ -24,6 +24,18 @@ func Run() {
 		return
 	}
 
+	admin, err := user.NewAdmin("admin@localhost", "password")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	fmt.Println("Admin user:")
+	admin.OutputUserDetails()
+	admin.ClearUserNames()
+	admin.OutputUserDetails()
+
+	fmt.Println("App user:")
 	appUser.OutputUserDetails()
 	appUser.ClearUserNames()
 	appUser.OutputUserDetails()
