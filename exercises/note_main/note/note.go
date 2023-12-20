@@ -39,7 +39,6 @@ func (n Note) Save() error {
 
 func New(title, content string) (*Note, error) {
 	if title == "" || content == "" {
-		fmt.Print(title, content)
 		return &Note{}, errors.New("Input cannot be empty")
 	}
 
