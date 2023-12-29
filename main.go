@@ -1,7 +1,7 @@
 package main
 
-import "github.com/mheob/udemy-go/examples/maps"
+import "github.com/mheob/udemy-go/examples/lists"
 
 func main() {
-	maps.Run()
+	lists.RunMake()
 }

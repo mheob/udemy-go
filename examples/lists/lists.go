@@ -2,7 +2,7 @@ package lists
 
 import "fmt"
 
-func Run() {
+func RunLists() {
 	var productNames [4]string
 	fmt.Println(productNames)
 

@@ -1,8 +1,8 @@
-package maps
+package lists
 
 import "fmt"
 
-func Run() {
+func RunMaps() {
 	websites := map[string]string{
 		"udemy":  "https://www.udemy.com",
 		"google": "https://www.google.com",
