@@ -1,7 +1,7 @@
 package main
 
-import "github.com/mheob/udemy-go/examples/lists"
+import "github.com/mheob/udemy-go/examples/funcs"
 
 func main() {
-	lists.RunMake()
+	funcs.RunVariadic()
 }
