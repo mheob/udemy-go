@@ -1,7 +1,7 @@
 package main
 
-import "github.com/mheob/udemy-go/examples/funcs"
+import pc "github.com/mheob/udemy-go/exercises/price_calculator"
 
 func main() {
-	funcs.RunVariadic()
+	pc.Run()
 }
